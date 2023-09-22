@@ -25,6 +25,23 @@ struct node* addFirst(int d, struct node* head) {
     return newFirst;
 }
 
+// add in the end
+struct node* addEnd(int d, node* head){
+    struct node* newEnd = (struct node*)malloc(sizeof(struct node));
+    newEnd->data = d;
+    newEnd->next = nullptr;
+    if(head == nullptr){
+        head = newEnd;
+    }else{
+        struct node* current = head;
+        while(current->next != nullptr){
+            current = current->next;
+        }
+        current->next = newEnd;
+    }
+    return head;
+};
+
 int main() {
     struct node* head = NULL;
     struct node* second = NULL;
@@ -52,5 +69,22 @@ int main() {
     cout << "Updated List: ";
     printList(head);
 
+    // Add an element (54) at the end
+    head = addEnd(54, head);
+
+    cout << "Updated List: ";
+    printList(head);
+
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
