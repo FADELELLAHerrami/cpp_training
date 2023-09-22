@@ -1,40 +1,60 @@
-#include <iostream>
+/*#include <iostream>
 
 using namespace std;
 
-struct node {
+struct Node
+{
     int data;             // store the data
-    struct node* next;    // store the address of the next node
+    Node* next;    // store the address of the next node
+    Node* prev; // store the address of the previous node
 };
 
-// Function to display linked list
-void printList(struct node* n) {
-    while (n != NULL) {
-        printf("%d ", n->data);  // Add a space after %d to separate the numbers
+// Function to display linked list forwards
+void printForward(Node* n)
+{
+    while (n != NULL)
+    {
+        cout<<n->data<<endl;  // Add a space after %d to separate the numbers
         n = n->next;
     }
 }
 
-int main() {
-    struct node* head = NULL;
-    struct node* second = NULL;
-    struct node* third = NULL;
+// Function to display linked list backword
+void printBackward(Node* n)
+{
+    while (n != NULL)
+    {
+        cout<<n->data<<endl;  // Add a space after %d to separate the numbers
+        n = n->prev;
+    }
+}
 
-    head = (struct node*)malloc(sizeof(struct node));
-    second = (struct node*)malloc(sizeof(struct node));
-    third = (struct node*)malloc(sizeof(struct node));
+int main()
+{
+    Node* head = nullptr;
+    Node* second = nullptr;
+    Node* third = nullptr;
+
+    head = new Node;
+    second = new Node;
+    third = new Node;
 
     head->data = 1;
     head->next = second;
+    head->prev = nullptr;
 
     second->data = 2;
     second->next = third;
+    second->prev = head;
 
     third->data = 3;
     third->next = NULL;
+    third->prev = second;
 
     // Call the printList function to display the linked list
-    printList(head);
+    printForward(head);
+    printBackward(third);
 
     return 0;
 }
+*/
