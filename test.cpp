@@ -42,6 +42,25 @@ struct node* addEnd(int d, node* head){
     return head;
 };
 
+// size of the list
+int listSize(struct node* n){
+    int count = 0;
+    while (n != NULL) {
+        ++count;
+        n = n->next;
+    }
+    return count;
+}
+// check if the list is empty
+bool isEmpty(struct node* n){
+    if(n==null){
+        return true;
+    }
+}
+
+
+
+
 int main() {
     struct node* head = NULL;
     struct node* second = NULL;
@@ -74,6 +93,8 @@ int main() {
 
     cout << "Updated List: ";
     printList(head);
+    // size of the list
+    cout<< "Size : "<<listSize(head)<<endl;
 
     return 0;
 }
